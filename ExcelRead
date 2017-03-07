@@ -1,0 +1,33 @@
+import xlrd
+# Open the workbook
+book = xlrd.open_workbook("C:/Users/bhargp/PycharmProjects/Test/data.xls")
+python_words = {}
+vname = []
+vfn = []
+vln = []
+vsalary = []
+# get the list of sheets
+sheets = book.sheets()
+
+total = 0
+for row in range(1, sheets[0].nrows):
+    #print (sheets[0].nrows)
+    name = sheets[0].cell_value(0, 0)
+    FN = sheets[0].cell_value(0, 1)
+    LN = sheets[0].cell_value(0, 2)
+    SALARY = sheets[0].cell_value(0, 3)
+
+    vname.append(sheets[0].cell_value(row,0))
+    vfn.append(sheets[0].cell_value(row, 1))
+    vln.append(sheets[0].cell_value(row, 2))
+    vsalary.append(sheets[0].cell_value(row, 3))
+
+    #print (a)
+    #total = total + sheets[0].cell_value(row, 2)
+
+python_words[SALARY] = vsalary
+python_words[LN] = vln
+python_words[FN] = vfn
+python_words[name] = vname
+
+print python_words
