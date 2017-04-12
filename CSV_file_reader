@@ -1,0 +1,17 @@
+file = open(_file)
+_data = []
+_serial_number = []
+_label = {"Queue Reason": 0, "Equipment Serial Number": 1, "Model": 2, "Make": 3, "Engine Serial Number": 4,
+          "VIN Number": 5, "Device ID": 6,
+          "Device Type": 7, "UCID": 8, "DCN": 9, "Service": 10, "CAT Subscription": 11,
+          "Dealer Subscription": 12, "Customer Subscription": 13}
+for value in file.readlines():
+    _data.append(value.strip())
+w =  len(_data)
+print "excel ",w
+for i in range(5, w):
+    k = _data[i].split(",")[_label["Queue Reason"]]
+    # print k
+    str = queue.strip()
+    if k == '"' + str + '"':
+        _serial_number.append(_data[i].split(",")[_label["Equipment Serial Number"]])
