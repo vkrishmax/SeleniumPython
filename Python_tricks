@@ -1,0 +1,12 @@
+Non Common data from two list
+````````````````````````````````
+>>> a = ['hi','hello','bye']
+>>> b = ['hello','bye','good']
+>>> set(a)^set(b)
+set(['hi', 'good'])
+
+Common data from two list
+``````````````````````````
+>>> set(a).intersection(set(b))
+set(['bye', 'hello'])
+
