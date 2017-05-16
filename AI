@@ -1,0 +1,63 @@
+
+
+
+
+def ap(new_string):
+    file_name = "testt.txt"
+    opened_file = open(file_name, 'a')
+    opened_file.write("\n" + new_string)
+    opened_file.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import xlrd
+from test1 import funct
+# Open the workbook
+book = xlrd.open_workbook("C:/Users/ /Desktop/Book1.xls")
+python_words = {}
+
+
+action = []
+pty = []
+data = []
+vsalary = []
+# get the list of sheets
+sheets = book.sheets()
+total = 0
+for row in range(1, sheets[0].nrows):
+    #print (sheets[0].nrows)
+    act = sheets[0].cell_value(0, 0)
+    prop = sheets[0].cell_value(0, 1)
+    dt = sheets[0].cell_value(0, 2)
+
+    action.append(sheets[0].cell_value(row, 0))
+    pty.append(sheets[0].cell_value(row, 1))
+    data.append(sheets[0].cell_value(row, 2))
+
+
+python_words[act] = action
+python_words[prop] = pty
+python_words[dt]  = data
+
+print python_words
+
+for ss in range(0, sheets[0].nrows-1):
+    print  python_words["Action"][ss]
+    if python_words["Action"][ss] == "click":
+        funct.ap(python_words["Action"][ss]+"("+python_words["Property"][ss]+")")
+    if python_words["Action"][ss] == "input":
+        funct.ap(python_words["Action"][ss]+"("+python_words["Property"][ss]+", "+python_words["data"][ss]+")")
+
