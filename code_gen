@@ -1,0 +1,5 @@
+file_name = "testt.txt"
+new_string = "   I am a new strisdng."
+opened_file = open(file_name, 'a')
+opened_file.write("\n"+ new_string)
+opened_file.close()
